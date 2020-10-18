@@ -1,10 +1,10 @@
 {
   "name": "xprezzo-buffer",
   "description": "Provide backward support for Node.js Buffer API before v12",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Ben Ajenoui <info@seohero.io>",
   "dependencies": {
-    "xprezzo-mixin": "1.1.0"
+    "xprezzo-mixin": "1.1.1"
   },
   "devDependencies": {
     "standard": "14.3.4",

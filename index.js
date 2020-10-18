@@ -1,7 +1,7 @@
 /* eslint-disable node/no-deprecated-api */
-var buffer = require('buffer')
-var Buffer = buffer.Buffer
-var mixin = require('xprezzo-mixin')
+const buffer = require('buffer')
+const Buffer = buffer.Buffer
+const mixin = require('xprezzo-mixin')
 
 function SafeBuffer (arg, encodingOrOffset, length) {
   return Buffer(arg, encodingOrOffset, length)
