@@ -3,27 +3,27 @@ const buffer = require('buffer')
 const Buffer = buffer.Buffer
 const mixin = require('xprezzo-mixin')
 
-function SafeBuffer (arg, encodingOrOffset, length) {
+function XprezzoBuffer (arg, encodingOrOffset, length) {
   return Buffer(arg, encodingOrOffset, length)
 }
 
-SafeBuffer.prototype = Object.create(Buffer.prototype)
+XprezzoBuffer.prototype = Object.create(Buffer.prototype)
 
 // Copy static methods from Buffer
-mixin(Buffer, SafeBuffer)
+mixin(Buffer, XprezzoBuffer)
 
-SafeBuffer.from = function (arg, encodingOrOffset, length) {
+XprezzoBuffer.from = function (arg, encodingOrOffset, length) {
   if (typeof arg === 'number') {
     throw new TypeError('Argument must not be a number')
   }
   return Buffer(arg, encodingOrOffset, length)
 }
 
-SafeBuffer.alloc = function (size, fill, encoding) {
+XprezzoBuffer.alloc = function (size, fill, encoding) {
   if (typeof size !== 'number') {
     throw new TypeError('Argument must be a number')
   }
-  var buf = Buffer(size)
+  const buf = Buffer(size)
   if (fill !== undefined) {
     if (typeof encoding === 'string') {
       buf.fill(fill, encoding)
@@ -36,14 +36,14 @@ SafeBuffer.alloc = function (size, fill, encoding) {
   return buf
 }
 
-SafeBuffer.allocUnsafe = function (size) {
+XprezzoBuffer.allocUnsafe = function (size) {
   if (typeof size !== 'number') {
     throw new TypeError('Argument must be a number')
   }
   return Buffer(size)
 }
 
-SafeBuffer.allocUnsafeSlow = function (size) {
+XprezzoBuffer.allocUnsafeSlow = function (size) {
   if (typeof size !== 'number') {
     throw new TypeError('Argument must be a number')
   }
@@ -56,7 +56,7 @@ if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow)
 } else {
   // Copy properties from require('buffer')
   mixin(buffer, exports)
-  exports.Buffer = SafeBuffer
+  exports.Buffer = XprezzoBuffer
 }
 
 module.exports.mixin = mixin

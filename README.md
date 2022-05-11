@@ -307,7 +307,7 @@ A `TypeError` will be thrown if `size` is not a number.
 
 ## People
 
-Xprezzo and related projects are maintained by [Ben Ajenoui](mailto:info@seoher.io) and sponsored by [SEO Hero](https://www.seohero.io).
+Xprezzo and related projects are maintained by [Cloudgen Wong](mailto:cloudgen.wong@gmail.com).
 
 # License
 
